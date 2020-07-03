@@ -1,16 +1,3 @@
--------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------------------
-----  █████╗ ███████╗███████╗██╗   ██╗██╗  ██╗██╗██╗███████╗     █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗ ----
----- ██╔══██╗██╔════╝██╔════╝██║   ██║██║  ██║██║██║██╔════╝    ██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║ ----
----- ███████║█████╗  ███████╗██║   ██║███████║██║██║███████╗    ███████║██║  ██║██╔████╔██║██║██╔██╗ ██║ ----
----- ██╔══██║██╔══╝  ╚════██║██║   ██║██╔══██║██║██║╚════██║    ██╔══██║██║  ██║██║╚██╔╝██║██║██║╚██╗██║ ----
----- ██║  ██║███████╗███████║╚██████╔╝██║  ██║██║██║███████║    ██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║ ----
----- ╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝╚══════╝    ╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ----
--------------------------------------------------------------------------------------------------------------
------------------------------------------xdd#1721--------------------------------------------------------
--------------------------------------------------------------------------------------------------------------
-
 local Player = game.Players.LocalPlayer
 local Mouse = Player:GetMouse()
 local char = Player.Character
@@ -1408,14 +1395,6 @@ end
 end
 end)
 
-Command('noantafk', 'unloop antafk a player',{},
-function(args, plr)
-if not isAdmin(plr) then return end
-
-	Notify("unlooped")
-	loopAK = false
-end)
-
 Command('unlnowep', 'unloop go to a player',{},
 function(args, plr)
 if not isAdmin(plr) then return end
@@ -1769,17 +1748,6 @@ end
 end
 end)
 
-Command('down', 'god player',{},
-function(args, plr)
-if not isAdmin(plr) then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-r:FireServer("down")
-end
-end)
-
 Command('ungod', 'unloop go to a player',{},
 function(args, plr)
 if not isAdmin(plr) then return end
@@ -2086,24 +2054,6 @@ r:FireServer("b")
 end
 end)
 
-Command('antafk', 'holds the players c key',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-loopAK = true
-while wait(20.0) do
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-r:FireServer("t")
-r:FireServer("r")
-if loopAK == false then 
-break
-end
-end
-end
-end)
-
 Command('n', 'presses the players n key',{},
 function(args, plr)
 if plr.Name ~= admin then return end
@@ -2167,19 +2117,6 @@ end
 end
 end)
 
-Command('toggleme', ';triperm plr nameHere',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players) do
-local r = gPlayers[v].Backpack.keyinput
-r:FireServer("custo", svtabl)
-r:FireServer("equipkey", "weapon", "rajinnpc")
-r:FireServer("save")
-end
-end)
-
 Command('triperm', ';triperm plr nameHere',{},
 function(args, plr)
 if plr.Name ~= admin then return end
@@ -2224,310 +2161,6 @@ r:FireServer("save")
 end
 end)
 
-Command('lfix','lfix player',{''},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify('fixed '..players[1])
-loopFix = true
-while wait() do
-r:FireServer("changeelement", "", "fire")
-r:FireServer("changeelement", "2", "sound")
-r:FireServer("changeelement", "3", "")
-r:FireServer("changeelement", "4", "")
-r:FireServer("changeelement", "5", "")
-r:FireServer("changeelement", "6", "")
-r:FireServer("changeelement", "", "earth")
-r:FireServer("changeelement", "2", "fire")
-r:FireServer("changeelement", "3", "")
-r:FireServer("changeelement", "4", "")
-r:FireServer("changeelement", "5", "")
-r:FireServer("changeelement", "6", "")
-r:FireServer("save")
-if loopFix == false then 
-break
-end
-end
-end
-end)
-
-Command('lademgerre', '???', {},
-function(args, plr)
-if plr.Name ~= admin then return end
-	local players = getPlayer(args[1], plr)
-	for i,v in pairs(players) do
-	local r = gPlayers[v].Backpack.keyinput
-        loopDamage = true
-        while wait() do
-		r:FireServer("candamage", false)
-		r:FireServer("candamage", true)
-if loopDamage == false then 
-break
-end
-end
-end
-end)
-
-Command('ltriperm', ';triperm plr nameHere',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players) do
-local r = gPlayers[v].Backpack.keyinput
-local startlook = gPlayers[v]:FindFirstChild(players[1].."look")
-loopTriperm = true
-while wait() do
-
-startlook.hair.Value = "Wedge"
-startlook.face.Value = ""
-startlook.eyecolor.Value = ""
-startlook.mouth.Value = ""
-
-local currenthair = startlook.hair.Value
-local currenthaircolor = startlook.haircolor.Value
-local currentface = startlook.face.Value
-local currentmouth = startlook.mouth.Value
-local currenteyecolor = startlook.eyecolor.Value
-local currentband = startlook.band.Value
-local currentbandsymbol = startlook.bandsymbol.Value
-
-svtabl = {
-        currenthair,
-        currenthaircolor,
-        currentface,
-        currentmouth,
-        currenteyecolor,
-        currentband,
-        currentbandsymbol
-}
-
-r:FireServer("custo", svtabl)
-r:FireServer("equipkey", "weapon", "rajinnpc")
-r:FireServer("changeelement", "", "")
-r:FireServer("changeelement", "element2", "")
-r:FireServer("changeelement", "element3", "")
-r:FireServer("changeelement", "element4", "")
-r:FireServer("changeelement", "element5", "")
-r:FireServer("changeelement", "element6", "")
-r:FireServer("save")
-if loopTriperm == false then 
-break
-end
-end
-end
-end)
-
-Command('noall', 'presses the players r key',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-loopNoall = true
-while wait() do
-
-r:FireServer("vend")
-r:FireServer("bend")
-r:FireServer("nend")
-if loopNoall == false then 
-break
-end
-end
-end
-end)
-
-Command('perm','perm player',{''},
-function(args)
-    local players = getPlayer(args[1])
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-r:FireServer("equipkey", "weapon", "-1")
-r:FireServer("equipkey", "n", "-1")
-r:FireServer("equipkey", "b", "-1")
-r:FireServer("equipkey", "v", "-1")
-r:FireServer("equipkey", "h", "-1")
-r:FireServer("equipkey", "g", "-1")
-r:FireServer("equipkey", "f", "-1")
-r:FireServer("equipkey", "y", "-1")
-r:FireServer("equipkey", "t", "-1")
-r:FireServer("equipkey", "r", "-1")
-r:FireServer("equipkey", "spins", "5000")
-r:FireServer("equipkey", "bounty", "-1")
-r:FireServer("equipkey", "ryo1", "-1")
-r:FireServer("equipkey", "ryo2", "-1")
-r:FireServer("equipkey", "kg1", "-1")
-r:FireServer("equipkey", "kg2", "-1")
-r:FireServer("equipkey", "kg3", "-1")
-r:FireServer("equipkey", "kg4", "-1")
-r:FireServer("changeelement", "", "-1")
-r:FireServer("changeelement", "element2", "-1")
-r:FireServer("changeelement", "element3", "-1")
-r:FireServer("changeelement", "element4", "-1")
-r:FireServer("changeelement", "element5", "-1")
-r:FireServer("changeelement", "element6", "-1")
-r:FireServer("equipkey", "clan", "")
-r:FireServer("equipkey", "village", "")
-r:FireServer("equipkey", "powerup", "-1")
-r:FireServer("equipkey", "mode", "-1")
-r:FireServer("equipkey", "comp", "-1")
-r:FireServer("changestat", "exp", "-10000000")
-r:FireServer("equipkey", "lvl", "-1")
-r:FireServer("save")
-end
-end)
-
-Command('ltrilag', ';triperm plr nameHere',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players) do
-local r = gPlayers[v].Backpack.keyinput
-local startlook = gPlayers[v]:FindFirstChild(players[1].."look")
-loopTrilag = true
-while wait() do
-
-startlook.hair.Value = "Wedge"
-startlook.face.Value = ""
-startlook.eyecolor.Value = ""
-startlook.mouth.Value = ""
-
-local currenthair = startlook.hair.Value
-local currenthaircolor = startlook.haircolor.Value
-local currentface = startlook.face.Value
-local currentmouth = startlook.mouth.Value
-local currenteyecolor = startlook.eyecolor.Value
-local currentband = startlook.band.Value
-local currentbandsymbol = startlook.bandsymbol.Value
-
-svtabl = {
-        currenthair,
-        currenthaircolor,
-        currentface,
-        currentmouth,
-        currenteyecolor,
-        currentband,
-        currentbandsymbol
-}
-
-r:FireServer("custo", svtabl)
-r:FireServer("equipkey", "weapon", "rajinnpc")
-r:FireServer("changeelement", "", "")
-r:FireServer("changeelement", "element2", "")
-r:FireServer("changeelement", "element3", "")
-r:FireServer("changeelement", "element4", "")
-r:FireServer("changeelement", "element5", "")
-r:FireServer("changeelement", "element6", "")
-r:FireServer("save")
-r:FireServer("teleport", [[
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-▒█░▒█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀█ ▀█▀ 　 ▒█░▒█ █▀▀█ ▀█░█▀ █▀▀ ▒█▄░▒█
-▒█▀▀█ █▀▀ █░░█ ░░█░░ █▄▄█ ▒█░ 　 ▒█▀▀█ █▄▄█ ░█▄█░ █▀▀ ▒█▒█▒█
-▒█░▒█ ▀▀▀ ▀░░▀ ░░▀░░ ▀░░▀ ▄█▄ 　 ▒█░▒█ ▀░░▀ ░░▀░░ ▀▀▀ ▒█░░▀█
-                                                                                                                     
-                                                                                                                                                            
-…………………...„„-~^^~„-„„_
-………………„-^*'' : : „'' : : : : *-„
-…………..„-* : : :„„--/ : : : : : : : '\
-…………./ : : „-* . .| : : : : : : : : '|
-……….../ : „-* . . . | : : : : : : : : |
-………...\„-* . . . . .| : : : : : : : :'|
-……….../ . . . . . . '| : : : : : : : :|
-……..../ . . . . . . . .'\ : : : : : : : |
-……../ . . . . . . . . . .\ : : : : : : :|
-……./ . . . . . . . . . . . '\ : : : : : /
-….../ . . . . . . . . . . . . . *-„„„„-*'
-….'/ . . . . . . . . . . . . . . '|
-…/ . . . . . . . ./ . . . . . . .|
-../ . . . . . . . .'/ . . . . . . .'|
-./ . . . . . . . . / . . . . . . .'|
-																																																																																																																																																																																																																															| . . . . . . .| . . / ./ ./ . .|                                                                                                                
-                                                               
-▒█░▒█ █▀▀ █▀▀▄ ▀▀█▀▀ █▀▀█ ▀█▀ 　 ▒█░▒█ █▀▀█ ▀█░█▀ █▀▀ ▒█▄░▒█
-▒█▀▀█ █▀▀ █░░█ ░░█░░ █▄▄█ ▒█░ 　 ▒█▀▀█ █▄▄█ ░█▄█░ █▀▀ ▒█▒█▒█
-▒█░▒█ ▀▀▀ ▀░░▀ ░░▀░░ ▀░░▀ ▄█▄ 　 ▒█░▒█ ▀░░▀ ░░▀░░ ▀▀▀ ▒█░░▀█
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]])
-if loopTrilag == false then 
-break
-end
-end
-end
-end)
-
-loopTrilag = false
-
 Command('fix','fix player',{''},
 function(args, plr)
 if plr.Name ~= admin then return end
@@ -2545,22 +2178,6 @@ r:FireServer("changeelement", "5", "")
 r:FireServer("changeelement", "6", "")
 r:FireServer("save")
 end
-end)
-
-Command('antlag','antlag localplayer',{''},
-function(args)
-local nomedacoisa = 'Message'
-
-local function DeletarCoisa()
-
-for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
-if v.Name == nomedacoisa then
-v:Destroy()
-end
-end
-end
-
-game.Players.LocalPlayer.PlayerGui.ChildAdded:connect(DeletarCoisa)
 end)
 
 --STOP KEYS
@@ -3201,100 +2818,29 @@ end
 end
 end)
 
-Command('limbo','resets a moveset',{},
+Command('set','set of raiken fr',{''},
 function(args, plr)
-local players = getPlayer(args[1], plr)
-for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify("Reset "..players[1].."'s moveset")
-r:FireServer("equipkey", "h", "nagringana")
-r:FireServer("equipkey", "b", "nagringana")
-r:FireServer("equipkey", "y", "nagringana")
-r:FireServer("equipkey", "t", "nagringana")
-r:FireServer("equipkey", "r", "nagringana")
-r:FireServer("equipkey", "f", "nagringana")
-r:FireServer("equipkey", "mode", "nagringan")
-r:FireServer("equipkey", "powerup", "slugsage")
-r:FireServer("equipkey", "n", "nagringana")
-r:FireServer("equipkey", "g", "nagringana")
-r:FireServer("equipkey", "comp", "madara2")
-r:FireServer("equipkey", "weapon", "sasukeswordmode")
-r:FireServer("equipkey", "clan", "Nemesis Theory")
-r:FireServer("equipkey", "village", "Gift of Despair")
-r:FireServer("save")
-end
-end)
+if not isStaff(plr) then return end
 
-Command('set','resets a moveset',{},
-function(args, plr)
-local players = getPlayer(args[1], plr)
-for i,v in pairs(players)do
+    local players = getPlayer(args[1], plr)
+    for i,v in pairs(players)do
 local r = gPlayers[v].Backpack.keyinput
-Notify("Reset "..players[1].."'s moveset")
-r:FireServer("equipkey", "h", "lightninge")
-r:FireServer("equipkey", "b", "nagringana")
+r:FireServer("equipkey", "n", "earthf")
 r:FireServer("equipkey", "y", "lightninga")
-r:FireServer("equipkey", "t", "waterc")
-r:FireServer("equipkey", "r", "nagringanb")
-r:FireServer("equipkey", "f", "leafww")
-r:FireServer("equipkey", "mode", "nagringan")
-r:FireServer("equipkey", "powerup", "slugsage")
-r:FireServer("equipkey", "n", "stormb")
-r:FireServer("equipkey", "g", "ftg")
-r:FireServer("equipkey", "comp", "madara2")
-r:FireServer("equipkey", "weapon", "sasukeswordmode")
-r:FireServer("equipkey", "clan", "Nemesis Theory")
-r:FireServer("equipkey", "village", "Gift of Despair")
-r:FireServer("save")
-end
-end)
-
-Command('set2','resets a moveset',{},
-function(args, plr)
-local players = getPlayer(args[1], plr)
-for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify("Reset "..players[1].."'s moveset")
-r:FireServer("equipkey", "h", "soundb")
-r:FireServer("equipkey", "b", "lightninge")
-r:FireServer("equipkey", "y", "lightninga")
-r:FireServer("equipkey", "t", "waterc")
-r:FireServer("equipkey", "r", "nagringanb")
-r:FireServer("equipkey", "f", "leafww")
-r:FireServer("equipkey", "mode", "nagringan")
-r:FireServer("equipkey", "powerup", "slugsage")
-r:FireServer("equipkey", "n", "stormb")
-r:FireServer("equipkey", "g", "ftg")
-r:FireServer("equipkey", "comp", "madara2")
-r:FireServer("equipkey", "weapon", "sasukeswordmode")
-r:FireServer("equipkey", "clan", "Nemesis Theory")
-r:FireServer("equipkey", "village", "Gift of Despair")
-r:FireServer("save")
-end
-end)
-
-Command('set3','resets a moveset',{''},
-function(args, plr)
-local players = getPlayer(args[1], plr)
-for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify("Reset "..players[1].."'s moveset")
-r:FireServer("equipkey", "h", "soundb")
-r:FireServer("equipkey", "b", "narab")
-r:FireServer("equipkey", "y", "lightninga")
-r:FireServer("equipkey", "t", "aburamec")
 r:FireServer("equipkey", "r", "icea")
-r:FireServer("equipkey", "f", "leafww")
+r:FireServer("equipkey", "t", "leafww")
 r:FireServer("equipkey", "mode", "itachisharingan2")
 r:FireServer("equipkey", "powerup", "slugsage")
-r:FireServer("equipkey", "n", "itachi21")
+r:FireServer("equipkey", "b", "itachi21")
 r:FireServer("equipkey", "g", "ftg")
+r:FireServer("equipkey", "h", "earthb")
+r:FireServer("equipkey", "f", "aburamec")
 r:FireServer("equipkey", "comp", "gaara2")
 r:FireServer("equipkey", "weapon", "nuibari")
-r:FireServer("equipkey", "clan", "Nemesis Theory")
-r:FireServer("equipkey", "village", "Gift of Despair")
+r:FireServer("equipkey", "clan", "<3")
+r:FireServer("equipkey", "village", "Baby No.")
 r:FireServer("save")
-end
+     end
 end)
 
 Command('nopstaff','resets a moveset',{''},
@@ -3333,50 +2879,6 @@ if not isAdmin(plr) then return end
 	loopMR = false
 end)
 
-Command('idk', 'Ice tri lag player',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify("Loop "..players[1].."'idk")
-loopIdk = true
-while wait() do
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("equipkey", "r", "icea")
-r:FireServer("equipkey", "r", "")
-r:FireServer("equipkey", "mode", "")
-r:FireServer("equipkey", "powerup", "")
-r:FireServer("equipkey", "t", "")
-r:FireServer("equipkey", "y", "")
-r:FireServer("equipkey", "f", "")
-r:FireServer("equipkey", "g", "")
-r:FireServer("equipkey", "h", "")
-r:FireServer("equipkey", "b", "")
-r:FireServer("equipkey", "v", "")
-r:FireServer("equipkey", "n", "")
-r:FireServer("equipkey", "weapon", "")
-r:FireServer("save")
-r:FireServer("changeelement", "", "fire")
-r:FireServer("changeelement", "2", "sound")
-r:FireServer("changeelement", "3", "")
-r:FireServer("changeelement", "4", "")
-r:FireServer("changeelement", "5", "")
-r:FireServer("changeelement", "6", "")
-r:FireServer("save")
-r:FireServer("v")
-r:FireServer("r")
-r:FireServer("b")
-r:FireServer("n")
-if loopIdk == false then
-end
-end
-end
-end)
-
 Command('mreset','resets a moveset',{''},
 function(args, plr)
 if not isAdmin(plr) then return end
@@ -3397,154 +2899,6 @@ r:FireServer("equipkey", "v", "")
 r:FireServer("equipkey", "comp", "")
 r:FireServer("equipkey", "weapon", "")
 r:FireServer("save")
-end
-end)
-
-Command('antice', ';triperm plr nameHere',{},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players) do
-local r = gPlayers[v].Backpack.keyinput
-local startlook = gPlayers[v]:FindFirstChild(players[1].."look")
-
-startlook.hair.Value = "Wedge"
-startlook.face.Value = ""
-startlook.eyecolor.Value = ""
-startlook.mouth.Value = ""
-
-local currenthair = startlook.hair.Value
-local currenthaircolor = startlook.haircolor.Value
-local currentface = startlook.face.Value
-local currentmouth = startlook.mouth.Value
-local currenteyecolor = startlook.eyecolor.Value
-local currentband = startlook.band.Value
-local currentbandsymbol = startlook.bandsymbol.Value
-
-svtabl = {
-        currenthair,
-        currenthaircolor,
-        currentface,
-        currentmouth,
-        currenteyecolor,
-        currentband,
-        currentbandsymbol
-}
-
-r:FireServer("custo", svtabl)
-r:FireServer("equipkey", "weapon", "rajinnpc")
-r:FireServer("changeelement", "", "")
-r:FireServer("changeelement", "element2", "")
-r:FireServer("changeelement", "element3", "")
-r:FireServer("changeelement", "element4", "")
-r:FireServer("changeelement", "element5", "")
-r:FireServer("changeelement", "element6", "")
-r:FireServer("save")
-r:FireServer("e")
-end
-end)
-
-Command('licex','lfix player',{''},
-function(args, plr)
-if plr.Name ~= admin then return end
-
-    local players = getPlayer(args[1], plr)
-    for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-Notify('fixed '..players[1])
-loopRin = true
-while wait() do
-r:FireServer("equipkey", "v", "lightninge")
-r:FireServer("equipkey", "b", "lightninge")
-r:FireServer("equipkey", "n", "lightninge")
-if loopRin == false then 
-break
-end
-end
-end
-end)
-
-Command('icelag','icelag a player',{''},
-function(args, plr)
-if not isStaff(plr) then return end
-
-	local players = getPlayer(args[1], plr)
-	for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-loopIcelag = true
-while wait() do
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("equipkey", "r", "")
-r:FireServer("equipkey", "t", "")
-r:FireServer("equipkey", "y", "")
-r:FireServer("equipkey", "f", "")
-r:FireServer("equipkey", "g", "")
-r:FireServer("equipkey", "h", "")
-r:FireServer("equipkey", "comp", "")
-r:FireServer("equipkey", "weapon", "")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("save")
-if loopIcelag == false then 
-break
-end
-end
-end
-end)
-
-Command('icecrash','icelag a player',{''},
-function(args, plr)
-if not isStaff(plr) then return end
-
-	local players = getPlayer(args[1], plr)
-	for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-loopIcecrash = true
-while wait() do
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("equipkey", "r", "")
-r:FireServer("equipkey", "t", "")
-r:FireServer("equipkey", "y", "")
-r:FireServer("equipkey", "f", "")
-r:FireServer("equipkey", "g", "")
-r:FireServer("equipkey", "h", "")
-r:FireServer("equipkey", "comp", "")
-r:FireServer("equipkey", "weapon", "")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("equipkey", "v", "icea")
-r:FireServer("equipkey", "b", "icea")
-r:FireServer("equipkey", "n", "icea")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("v")
-r:FireServer("b")
-r:FireServer("n")
-r:FireServer("save")
-if loopIceCrash == false then 
-break
-end
-end
 end
 end)
 
@@ -20197,23 +19551,6 @@ if not isStaff(plr) then return end
 local r = gPlayers[v].Backpack.keyinput
 r:FireServer("equipkey", "weapon", "yinyang")
 Notify('Gave '..players[1]..' yin yang staff')
-     end
-end)
-
-Command('lsr','sasukes rinnegan sword',{''},
-function(args, plr)
-if not isStaff(plr) then return end
-
-	local players = getPlayer(args[1], plr)
-	for i,v in pairs(players)do
-local r = gPlayers[v].Backpack.keyinput
-loopSR = true
-while wait() do
-r:FireServer("equipkey", "weapon", "sasukeswordmode")
-if loopSR == false then 
-break
-end
-end
      end
 end)
 
