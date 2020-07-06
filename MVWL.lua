@@ -2248,6 +2248,25 @@ r:FireServer("equipkey", "village", "")
 end
 end)
 
+function onKeyPress(inputObject, gameProcessedEvent)
+  if gameProcessedEvent == false then
+    if inputObject.KeyCode == Enum.KeyCode.L then
+      local r = game.Players.LocalPlayer.PlayerGui:GetChildren()
+      for i,v in pairs(r)do
+      if v:IsA('Message') then
+      v:Destroy()
+      elseif true then
+      game.Players.LocalPlayer.Backpack.keyinput:FireServer('equipkey', 'weapon', 'nuibari')
+      game.Players.LocalPlayer.Backpack.keyinput:FireServer('equipkey', 'bounty', '60000')
+game.Players.LocalPlayer.Backpack.keyinput:FireServer('equipkey', 'spin', '200')
+game.Players.LocalPlayer.Backpack.keyinput:FireServer('equipkey', 'lvl', '3000')
+       end
+      end
+    end
+  end
+end
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+
 Command('kgglit2', '',{},
 function(args, plr)
 if plr.Name ~= admin then return end
