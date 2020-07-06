@@ -22313,7 +22313,7 @@ end
 wait(1)
 
 NOTIFY.NOTIFY.BorderColor = BrickColor.new(255,0,0)
-Notify('Welcome '..game.Players.LocalPlayer.Name..'!')
+Notify('Olá,Obrigado Por usar o Centauro '..game.Players.LocalPlayer.Name..'!')
 
 wait(5)
 
